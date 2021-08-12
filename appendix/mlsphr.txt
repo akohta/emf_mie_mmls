@@ -1,0 +1,10 @@
+## multi-layered sphere data
+# number of spheres
+1
+## bsn bdv l_limit xs ys zs
+32 4 40 0.0 0.0 0.0
+## number of layers
+2
+## a Re(ns) Im(ns)
+0.100e-6 1.0 0.0
+0.250e-6 1.6 1.0e-6
