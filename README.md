@@ -1,5 +1,5 @@
 # emf_mie_mmls
-This is the electromagnetic field analysis program for multi-layered spherical particles. This is the own developed method. 
+This is the electromagnetic field analysis program for multi-layered spherical particles. This is the own developed method based on Mie scattering theory. 
 This program can analyze multiple scattering between spheres by using iterative solutions. 
 The electromagnetic field analysis program "multi_fbeam" is used to analyze incident field. GNU Scientific Library is required.  
 
