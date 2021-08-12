@@ -46,7 +46,7 @@ The radiation_force.pdf is the visualization result of radiation forces, created
 4. Abramowitz, Milton, and Irene A. Stegun, eds. Handbook of mathematical functions with formulas, graphs, and mathematical tables. Vol. 55. US Government printing office, 1948.  
 5. The electromagnetic field analysis program [multi_fbeam](https://github.com/akohta/multi_fbeam/)  
 
-The formula (12) in the Reference 2 ( z-component of radiation torque ) is misprinted. The following formula is correct.
+The formula (12) in the Reference 2 ( z-component of radiation torque ) is misprinted. The following formula is correct.  
 <img src="https://latex.codecogs.com/gif.latex?\frac{\left<N_z\right>}{a^3E_0^2}=-\frac{a}{8\pi}\sum_{l=1}^{\infty}\sum_{m=-l}^{l}l(l+1)m\left[\epsilon_{\mathrm{ext}}|a_{lm}|^2+|b_{lm}|^2+\Re(\epsilon_{\mathrm{ext}}a_{lm}A_{lm}^*+b_{lm}B_{lm}^*)\right]">.  
 The first letter <img src="https://latex.codecogs.com/gif.latex?l"> in the term of sum is missed.
 
