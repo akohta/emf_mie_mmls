@@ -1,0 +1,52 @@
+ "ipw.txt" No.00 -- plane wave --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+incident beam power                  [W/m^2]:         1000000
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+
+--------- sphere data ---------
+sphere id 0
+  basic sampling number on sphere surface       :               32
+  division number of sphere surface     (per PI):                4
+  limit of order number l                       :               40
+  x-coordinate of sphere center              [m]:                0
+  y-coordinate of sphere center              [m]:                0
+  z-coordinate of sphere center              [m]:                0
+  layer id 0
+    radius of layer                          [m]:            5e-07
+    refractive index of layer                   :       1+      0I
+  layer id 1
+    radius of layer                          [m]:          1.5e-06
+    refractive index of layer                   :     1.6+  1e-06I
+  layer id 2
+    radius of layer                          [m]:          2.5e-06
+    refractive index of layer                   :     1.5+    0.1I
+
+Electromagnetic field at r=(  5e-07, 0,-1e-06 )
+Ex =  1.26526938271309e+04 +8.98907917910777e+02 I
+Ey = -1.55075190052352e-11 -2.36217612930945e-11 I
+Ez =  6.86637682191304e+02 -6.85326502884752e+02 I
+Hx = -3.69533798692832e-13 -9.74490650721052e-14 I
+Hy =  5.38193509648005e+01 +1.14841044234080e+01 I
+Hz = -3.51501648211317e-13 -2.31660060823516e-14 I
+Real electromagnetic field at t=1e-08
+Ex = -2.23465109187643e+03
+Ey = -1.90920708909442e-11
+Ez = -8.32915278410812e+02
+Hx = -3.75196627159295e-15
+Hy = -2.07917552542880e+00
+Hz =  6.38314197406812e-14
+
+Radiation force and torque
+Mie coefficient
+sphere id  0, F=( -5.9174598334546e-31,-9.9359238905971e-31, 9.6087191888949e-14 ) [ N ]
+           0, N=(  1.2394328028236e-35, 1.1233055515422e-35,-1.9505263475736e-36 ) [N m]
+Surface integral
+sphere id  0, F=( -6.0576515282055e-32, 3.0981153755902e-30, 9.6087191888948e-14 ) [ N ]
+           0, N=(  1.7844594001559e-35, 1.0766058885594e-34, 3.9895236749022e-36 ) [N m]
