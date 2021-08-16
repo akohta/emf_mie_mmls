@@ -45,8 +45,8 @@ void force_sphr(double *f3,SPD *sp,Bobj *bm)
   double complex a00,b00,app,bpp,apm,bpm,a0p,b0p,ap0,bp0;
   double complex tfxy=0.0,tfz=0.0;
   double c0p,c0m,c1p,c1m,c2p,c2m;
-  double cep=pow(bm->n_0,2)*epsilon0;
-  double mu_0=mu0;
+  double cep=pow(bm->n_0,2);
+  double mu_0=1.0;
   double ke=2.0*M_PI*bm->n_0/bm->lambda_0;
   int lm=sp->l_limit;
   int l,m;
@@ -134,8 +134,8 @@ void torque_sphr(double *n3,SPD *sp,Bobj *bm)
   double complex a00,b00,a0p,b0p;
   double tnx=0.0,tny=0.0,tnz=0.0;
   double c0p,c0m;
-  double cep=pow(bm->n_0,2)*epsilon0;
-  double mu_0=mu0;
+  double cep=pow(bm->n_0,2);
+  double mu_0=1.0;
   double ke=2.0*M_PI*bm->n_0/bm->lambda_0;
   int lm=sp->l_limit;
   int l,m;
@@ -189,8 +189,8 @@ void force_torque_sphr(double *f3,double *n3,SPD *sp,Bobj *bm)
   double complex tfxy=0.0,tfz=0.0;
   double tnx=0.0,tny=0.0,tnz=0.0;
   double c0p,c0m,c1p,c1m,c2p,c2m,c3p,c3m;
-  double cep=pow(bm->n_0,2)*epsilon0;
-  double mu_0=mu0;
+  double cep=pow(bm->n_0,2);
+  double mu_0=1.0;
   double ke=2.0*M_PI*bm->n_0/bm->lambda_0;
   int lm=sp->l_limit;
   int l,m;

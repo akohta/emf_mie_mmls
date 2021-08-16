@@ -44,7 +44,6 @@ void write_dat_mmls(char *fn,MSPD *msp)
 
 void  read_dat_mmls(char *fn,MSPD *msp)
 {
-  void *m_alloc2(size_t num,size_t size, char *txt); // emf_mie_ms.c
   void setup_sp(SPD *sp); // emf_mie_ms.c
 
   FILE *fp;

@@ -2,25 +2,25 @@
 # number of spheres
 3
 ## bsn bdv l_limit xs ys zs
-32 4 40 -1.5e-6 0.0 0.0
+32 4 40 -1.5 0.0 0.0
 ## number of layers
 2
 ## a Re(ns) Im(ns)
-0.500e-6 0.129 6.83
-1.500e-6 1.6 1.0e-6
+0.500 0.129 6.83
+1.500 1.6 1.0e-6
 
 ## bsn bdv l_limit xs ys zs
-32 4 40 1.5e-6 0.0 0.0
+32 4 40 1.5 0.0 0.0
 ## number of layers
 2
 ## a Re(ns) Im(ns)
-0.500e-6 0.129 6.83
-1.500e-6 1.6 1.0e-6
+0.500 0.129 6.83
+1.500 1.6 1.0e-6
 
 ## bsn bdv l_limit xs ys zs
-32 4 40 0.0 0.0 2.59807622e-6
+32 4 40 0.0 0.0 2.59807622
 ## number of layers
 2
 ## a Re(ns) Im(ns)
-0.500e-6 0.129 6.83
-1.500e-6 1.6 1.0e-6
+0.500 0.129 6.83
+1.500 1.6 1.0e-6
