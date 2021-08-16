@@ -1,14 +1,11 @@
 #if !defined EMF_MIE_MMLS_H_
 #define EMF_MIE_MMLS_H_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <complex.h>
-
 #include "multi_fbeam.h"
 #include "rctbess.h"
 #include "gsl/gsl_specfunc.h"
+#include "my_utils.h"
+#include "osu_mksa.h"
 
 // default sphere datafile name
 #define fn_mlsphr "mlsphr.txt"
@@ -51,11 +48,12 @@ typedef struct sphere_objct{
 }MSPD;
 
 // ---- emf_mie_mmls.c ----
-void read_data_mmls(MSPD *msp);     // seach the sphere datafile (defined fn_mlsphr) and load 
-void print_data_mmls(MSPD *msp);    // print loaded data
-void setup_mmls(MSPD *msp);         // allocate memory and setup coefficients
-void  free_mmls(MSPD *msp);         // free allocated memory
-void iterative_ops_mmls(MSPD *msp); // solve multiple scattering
+void read_data_mmls(MSPD *msp);      // seach the sphere datafile (defined fn_mlsphr) and load 
+void print_data_mmls(MSPD *msp);     // print loaded data
+void print_data_mmls_mksa(MSPD *msp);// print loaded data in MKSA system of units
+void setup_mmls(MSPD *msp);          // allocate memory and setup coefficients
+void  free_mmls(MSPD *msp);          // free allocated memory
+void iterative_ops_mmls(MSPD *msp);  // solve multiple scattering
 
 // ---- emf_mie_mmls_field.c ----
 void  incident_EH_mmls(double complex *e,double complex *h,double *r,MSPD *msp); // calculate incident field 

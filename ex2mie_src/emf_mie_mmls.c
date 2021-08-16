@@ -1,7 +1,5 @@
 #include "emf_mie_mmls.h"
 
-void *m_alloc2(size_t num,size_t size, char *txt);
-
 void read_data_mmls(MSPD *msp)
 {
   FILE *fp;
@@ -82,12 +80,35 @@ void print_data_mmls(MSPD *msp)
     printf("  basic sampling number on sphere surface       : %16d\n",msp->sp[s].bsn);
     printf("  division number of sphere surface     (per PI): %16d\n",msp->sp[s].bdv);
     printf("  limit of order number l                       : %16d\n",msp->sp[s].l_limit);
-    printf("  x-coordinate of sphere center              [m]: %16.15g\n",msp->sp[s].xs);
-    printf("  y-coordinate of sphere center              [m]: %16.15g\n",msp->sp[s].ys);
-    printf("  z-coordinate of sphere center              [m]: %16.15g\n",msp->sp[s].zs);
+    printf("  x-coordinate of sphere center                 : %16.15g\n",msp->sp[s].xs);
+    printf("  y-coordinate of sphere center                 : %16.15g\n",msp->sp[s].ys);
+    printf("  z-coordinate of sphere center                 : %16.15g\n",msp->sp[s].zs);
     for(i=0;i<msp->sp[s].n_l;i++){
       printf("  layer id %d\n",i);
-      printf("    radius of layer                          [m]: %16.15g\n",msp->sp[s].a[i]);
+      printf("    radius of layer                             : %16.15g\n",msp->sp[s].a[i]);
+      printf("    refractive index of layer                   : %7.6g+%7.6gI\n",creal(msp->sp[s].ns[i]),cimag(msp->sp[s].ns[i]));    }
+  }
+  printf("\n");
+}
+
+void print_data_mmls_mksa(MSPD *msp)
+{
+  int s,i;
+  
+  print_data_mfb_mksa(&(msp->bm)); // print beam data
+  
+  printf("--------- sphere data, MKSA system ---------\n");
+  for(s=0;s<msp->n_sphr;s++){
+    printf("sphere id %d\n",s);
+    printf("  basic sampling number on sphere surface       : %16d\n",msp->sp[s].bsn);
+    printf("  division number of sphere surface     (per PI): %16d\n",msp->sp[s].bdv);
+    printf("  limit of order number l                       : %16d\n",msp->sp[s].l_limit);
+    printf("  x-coordinate of sphere center              [m]: %16.15g\n",OSUtoMKSA_length(msp->sp[s].xs));
+    printf("  y-coordinate of sphere center              [m]: %16.15g\n",OSUtoMKSA_length(msp->sp[s].ys));
+    printf("  z-coordinate of sphere center              [m]: %16.15g\n",OSUtoMKSA_length(msp->sp[s].zs));
+    for(i=0;i<msp->sp[s].n_l;i++){
+      printf("  layer id %d\n",i);
+      printf("    radius of layer                          [m]: %16.15g\n",OSUtoMKSA_length(msp->sp[s].a[i]));
       printf("    refractive index of layer                   : %7.6g+%7.6gI\n",creal(msp->sp[s].ns[i]),cimag(msp->sp[s].ns[i]));    }
   }
   printf("\n");
@@ -190,19 +211,6 @@ void iterative_ops_mmls(MSPD *msp)
 }
 
 /////////////////////////////////////////////////////////////////////
-void *m_alloc2(size_t num,size_t size, char *txt)
-{
-  void *tmp;
-  tmp=calloc(num,size);
-  if(tmp==NULL){
-    printf("memory allocation error!\n");
-    printf("%s. ",txt);
-    printf("Exit..\n");
-    exit(1);
-  }
-  else return tmp;
-}
-
 void check_data(MSPD *msp)
 {
   double r,rs;
@@ -793,8 +801,8 @@ void scattered_EH(double complex *e3,double complex *h3,double *x3,SPD *sp,Bobj 
   cos_p=x/rxy;  sin_p=y/rxy;
   ke =2.0*M_PI*bm->n_0/bm->lambda_0;
   ker=ke*r;
-  ne=bm->n_0/Z0;
-  i_ne=Z0/(bm->n_0);
+  ne=bm->n_0;
+  i_ne=1.0/(bm->n_0);
   
   rcth1d(lm,ker,&nn,xi,dxi);  if(nn<sp->ddt.l_max) sp->ddt.l_max=nn;
   dep=cos_p+I*sin_p; expi=1.0;
@@ -892,8 +900,8 @@ void internal_EH(int id,double complex *e3,double complex *h3,double *x3,SPD *sp
   cos_p=x/rxy;  sin_p=y/rxy;
   ke =2.0*M_PI*sp->ns[id]/bm->lambda_0;
   ker=ke*r;
-  ne=sp->ns[id]/Z0;
-  i_ne=Z0/(sp->ns[id]);
+  ne=sp->ns[id];
+  i_ne=1.0/(sp->ns[id]);
 
   rctjc(lm,ker,&nn,psi,dpsi);  if(nn<sp->ddt.l_max) sp->ddt.l_max=nn;
   rctyc(lm,ker,&nn,chi,dchi);  if(nn<sp->ddt.l_max) sp->ddt.l_max=nn;
