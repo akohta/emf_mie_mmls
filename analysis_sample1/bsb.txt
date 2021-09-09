@@ -1,0 +1,6 @@
+## Bessel beam
+# number of beams
+1
+#lambda0 ni d_angle power real(e0x) imag(e0x) real(e0y) imag(e0y) fx fy fz theta phi
+1.064 1.33 0.698131701 1.0e-3 1.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0
+
