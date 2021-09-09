@@ -1,0 +1,90 @@
+../example1.out ex1.dat 
+
+ "bsb.txt" No.00 -- Bessel beam --
+wave length of incident beam in vacuum      :           1.064
+refractive index of surrounding             :            1.33
+deflection angle                       [rad]:     0.698131701
+incident beam power per unit area           :           0.001
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector           :               0
+y-component of translation vector           :               0
+z-component of translation vector           :               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+
+--------- sphere data ---------
+sphere id 0
+  basic sampling number on sphere surface       :               32
+  division number of sphere surface     (per PI):                4
+  limit of order number l                       :               40
+  x-coordinate of sphere center                 :                0
+  y-coordinate of sphere center                 :                0
+  z-coordinate of sphere center                 :                0
+  layer id 0
+    radius of layer                             :              0.5
+    refractive index of layer                   :       1+      0I
+  layer id 1
+    radius of layer                             :              1.5
+    refractive index of layer                   :     1.6+  1e-06I
+  layer id 2
+    radius of layer                             :              2.5
+    refractive index of layer                   :     1.5+    0.1I
+
+ "bsb.txt" No.00 -- Bessel beam, MKSA system --
+wave length of incident beam in vacuum   [m]:       1.064e-06
+refractive index of surrounding             :            1.33
+deflection angle                       [rad]:     0.698131701
+incident beam power per unit area    [W/m^2]:         1000000
+x-component of polarization coefficient     :      1+      0i
+y-component of polarization coefficient     :      0+      0i
+x-component of translation vector        [m]:               0
+y-component of translation vector        [m]:               0
+z-component of translation vector        [m]:               0
+rotation parameter theta               [rad]:               0
+rotation parameter phi                 [rad]:               0
+
+--------- sphere data, MKSA system ---------
+sphere id 0
+  basic sampling number on sphere surface       :               32
+  division number of sphere surface     (per PI):                4
+  limit of order number l                       :               40
+  x-coordinate of sphere center              [m]:                0
+  y-coordinate of sphere center              [m]:                0
+  z-coordinate of sphere center              [m]:                0
+  layer id 0
+    radius of layer                          [m]:            5e-07
+    refractive index of layer                   :       1+      0I
+  layer id 1
+    radius of layer                          [m]:          1.5e-06
+    refractive index of layer                   :     1.6+  1e-06I
+  layer id 2
+    radius of layer                          [m]:          2.5e-06
+    refractive index of layer                   :     1.5+    0.1I
+
+Electromagnetic field at r=(  0.5, 0,-1 )
+Ex =  6.18680847425926e-03 -1.25222184073963e-02 I (= 3.79736160723811e+03 -7.68593235357752e+03 I [V/m](MKSA))
+Ey = -7.44580450178946e-17 +8.52787815606144e-17 I (=-4.57011272738343e-11 +5.23427179550914e-11 I [V/m](MKSA))
+Ez =  1.79888260156296e-02 +9.42319877205357e-03 I (= 1.10412464771211e+04 +5.78380491060114e+03 I [V/m](MKSA))
+Hx = -9.38835774559520e-17 -1.26026939537373e-16 I (=-1.52958757335917e-13 -2.05327966667329e-13 I [A/m](MKSA))
+Hy =  1.69524984629132e-02 -1.44868643821371e-02 I (= 2.76196664943113e+01 -2.36025600390578e+01 I [A/m](MKSA))
+Hz = -5.68847537852967e-17 -7.30514275973944e-17 I (=-9.26788420950499e-14 -1.19018212659766e-13 I [A/m](MKSA))
+Real electromagnetic field at t=0.001
+Ex =  6.11275420915472e-03 (= 3.75190831345501e+03 [V/m](MKSA))
+Ey = -7.39531572299060e-17 (=-4.53912354273277e-11 [V/m](MKSA))
+Ez =  1.80441583786387e-02 (= 1.10752085743482e+04 [V/m](MKSA))
+Hx = -9.46261566853095e-17 (=-1.54168596151436e-13 [A/m](MKSA))
+Hy =  1.68666548310116e-02 (= 2.74798067273885e+01 [A/m](MKSA))
+Hz = -5.73151463345070e-17 (=-9.33800542908116e-14 [A/m](MKSA))
+
+Radiation force and torque
+Mie coefficient
+sphere id  0, F=(  1.4124040564166e-18, 7.1133517706227e-19, 0.017134189084318 )
+           0, N=(  1.833401605418e-18, 6.5107231486126e-18,-2.2754193114722e-18 )
+           0, F=(  4.7112728113281e-30, 2.3727587471939e-30, 5.7153502788647e-14 ) [ N ](MKSA)
+           0, N=(  6.115569476461e-36, 2.1717434761526e-35,-7.5899818382762e-36 ) [N m](MKSA)
+Surface integral
+sphere id  0, F=(  9.5032861517196e-18, 1.2687641583244e-18, 0.017134189084318 )
+           0, N=( -4.7155454826147e-19,-7.4814714461828e-18,-6.1519545683297e-19 )
+           0, F=(  3.1699550466075e-29, 4.2321416849133e-30, 5.7153502788647e-14 ) [ N ](MKSA)
+           0, N=( -1.5729366622741e-36,-2.4955502536968e-35,-2.052071159285e-36 ) [N m](MKSA)
