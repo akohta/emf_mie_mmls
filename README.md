@@ -19,7 +19,9 @@ The electromagnetic field analysis program "multi_fbeam" is used to analyze inci
    For example, './mie_mmls_solver ex.dat'. 
    The beam datafile "ipw.txt" (plane wave is defined) and the sphere datafile "mlsphr.txt" (radius 2.5, three-layered spherical particle is defined) are used.
    This executable calcluates Mie coefficients, outputs them to binary file with the specified name.
-   This program searches for a sphere datafile in current directory using the default datafile name "mlsphr.txt".
+   This program searches for a sphere datafile in current directory using the default datafile name "mlsphr.txt". 
+   As a simple representation of the analysis model, the nodes used for the surface integral are output as point cloud data. 
+   In this case, the file "ex.particles" is output, and the visualization result is "ex_particle.png" (using ParaView).  
    
 3. type './example1.out' with a argument of datafile name.  
    For example, './example1.out ex.dat'. 
@@ -31,7 +33,8 @@ The electromagnetic field analysis program "multi_fbeam" is used to analyze inci
    This executable calculates electromagnetic field intensity distributions, outputs them to text files.
    The I_example2.png is the visualization result of electromagnetic field intensity distributions, created by Gnuplot script gscript_example2.plt
    (converted eps to png by using ImageMagick).  
-   
+
+![point cloud data 0](ex_particles.png "node for surface integral (ex_particle.png)") 
 ![intensity distributions 0](I_example2.png "intensity distributions (I_example2.png)")
    
 Please see ex2mie_src/emf_mie_mmls.h for detail of functions, mfb_src/multi_fbeam.h for detail of incident fields.
@@ -46,6 +49,7 @@ The multiple scattering between spheres can be analyzed by the executable mie_mm
 The usage is the same as example code. For exampe, '../mie_mmls_solver ex2.dat', '../example2.out ex2.dat' (run in analysis_sample2 folder).
 The I_example2.png in this folder is the visualization result of electromagnetic field intensity distributions.  
 
+![point cloud data 2](analysis_sample2/ex2_particles.png "nodes for surface integral (analysis_sample2/ex2_particles.png)") 
 ![intensity distributions 2](analysis_sample2/I_example2.png "intensity distributions (analysis_sample2/I_example2.png)")
 
 
@@ -82,7 +86,8 @@ Please see com_src/osu_mksa.h and com_src/osu_mksa.c for detail of conversions.
 3. Barton, John P., et al. "Electromagnetic field for a beam incident on two adjacent spherical particles." Applied optics 30.33 (1991): 4706-4715.  
 4. Abramowitz, Milton, and Irene A. Stegun, eds. Handbook of mathematical functions with formulas, graphs, and mathematical tables. Vol. 55. US Government printing office, 1948.  
 5. GNU Scientific Library [GSL](https://www.gnu.org/software/gsl/)  
-6. The electromagnetic field analysis program [multi_fbeam](https://github.com/akohta/multi_fbeam/)  
+6. The electromagnetic field analysis program [multi_fbeam](https://github.com/akohta/multi_fbeam/) 
+7. The data analysis and visualization application [ParaView](https://www.paraview.org/)  
 
 
 The formula (12) in the Reference 2 ( z-component of radiation torque ) is misprinted. The following formula is correct.  
