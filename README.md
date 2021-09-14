@@ -34,7 +34,7 @@ The electromagnetic field analysis program "multi_fbeam" is used to analyze inci
    The I_example2.png is the visualization result of electromagnetic field intensity distributions, created by Gnuplot script gscript_example2.plt
    (converted eps to png by using ImageMagick).  
 
-![point cloud data 0](ex_particles.png "node for surface integral (ex_particle.png)") 
+![point cloud data 0](ex_particles.png "nodes for surface integral (ex_particle.png)") 
 ![intensity distributions 0](I_example2.png "intensity distributions (I_example2.png)")
    
 Please see ex2mie_src/emf_mie_mmls.h for detail of functions, mfb_src/multi_fbeam.h for detail of incident fields.
