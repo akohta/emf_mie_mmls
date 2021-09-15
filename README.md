@@ -15,7 +15,7 @@ The electromagnetic field analysis program "multi_fbeam" is used to analyze inci
    The example1.out is the executable of source code example1.c, it shows a simplest example using "emf_mie_mmls".
    The example2.out is the executable of source code example2.c, it shows a example of electromagnetic field intensity analysis.
    
-2. type './mie_mmls_solver' with a argument of output datafile name.  
+2. type './mie_mmls_solver' with an argument of output datafile name.  
    For example, './mie_mmls_solver ex.dat'. 
    The beam datafile "ipw.txt" (plane wave is defined) and the sphere datafile "mlsphr.txt" (radius 2.5, three-layered spherical particle is defined) are used.
    This executable calcluates Mie coefficients, outputs them to binary file with the specified name.
@@ -23,12 +23,12 @@ The electromagnetic field analysis program "multi_fbeam" is used to analyze inci
    As a simple representation of the analysis model, the nodes used for the surface integral are output as point cloud data. 
    In this case, the file "ex.particles" is output, and the visualization result is "ex_particle.png" (using ParaView).  
    
-3. type './example1.out' with a argument of datafile name.  
+3. type './example1.out' with an argument of datafile name.  
    For example, './example1.out ex.dat'. 
    This executable calculates electromagnetic field, radiation force and torque.
    This is the simplest example using this code.  
 
-4. type './example2.out' with a argument of datafile name.  
+4. type './example2.out' with an argument of datafile name.  
    For example, './example2.out ex.dat'. 
    This executable calculates electromagnetic field intensity distributions, outputs them to text files.
    The I_example2.png is the visualization result of electromagnetic field intensity distributions, created by Gnuplot script gscript_example2.plt
@@ -86,8 +86,9 @@ Please see com_src/osu_mksa.h and com_src/osu_mksa.c for detail of conversions.
 3. Barton, John P., et al. "Electromagnetic field for a beam incident on two adjacent spherical particles." Applied optics 30.33 (1991): 4706-4715.  
 4. Abramowitz, Milton, and Irene A. Stegun, eds. Handbook of mathematical functions with formulas, graphs, and mathematical tables. Vol. 55. US Government printing office, 1948.  
 5. GNU Scientific Library [GSL](https://www.gnu.org/software/gsl/)  
-6. The electromagnetic field analysis program [multi_fbeam](https://github.com/akohta/multi_fbeam/) 
-7. The data analysis and visualization application [ParaView](https://www.paraview.org/)  
+6. Command-line driven graphing utility [gnuplot](http://www.gnuplot.info/)  
+7. The electromagnetic field analysis program [multi_fbeam](https://github.com/akohta/multi_fbeam/) 
+8. The data analysis and visualization application [ParaView](https://www.paraview.org/)  
 
 
 The formula (12) in the Reference 2 ( z-component of radiation torque ) is misprinted. The following formula is correct.  
