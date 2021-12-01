@@ -46,8 +46,10 @@ GNU Scientific Library and libpng are required.
    The xz_Ex.gif, yz_Ex.gif and xy_Ex.gif are animated gifs that concatenate the png files created by using the shell script gif_animation.sh.  
 
 Please see ex2mie_src/emf_mie_mmls.h for detail of functions, mfb_src/multi_fbeam.h for detail of incident fields.
-The mie_mmls_solver and example3.out are parallelized using OpenMP. 
+The mie_mmls_solver, example2.out and example3.out are parallelized using OpenMP. 
 The number of threads is controlled by the environment variable OMP_NUM_THREADS. 
+The file named make_icx is the makefile for Intel compiler. 
+For this code, Intel compiler is about 1.5 times faster than gcc (using gcc version 9.3.0, icx version 2021.4.0). 
 The additional analysis example of single sphere is in the folder analysis_sample1.  
 
 ![point cloud data 0](ex_particles.png "nodes for surface integral (ex_particle.png)")  
