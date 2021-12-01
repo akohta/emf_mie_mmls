@@ -8,9 +8,20 @@ void read_data_mmls(MSPD *msp)
   int s,i,tmpi;
   
   if((fp=fopen(fn_mlsphr,"rt"))==NULL){    printf("Can not open the '%s' file. Exit...\n",fn_mlsphr);    exit(1);  }
-  fgets(buf,256,fp);  fgets(buf,256,fp);
+  if(fgets(buf,256,fp)==NULL){
+    printf("emf_mie_mmls.c, read_data_mmls(), failed to read the line. exit...\n");
+    exit(1);
+  }
+  if(fgets(buf,256,fp)==NULL){
+    printf("emf_mie_mmls.c, read_data_mmls(), failed to read the line. exit...\n");
+    exit(1);
+  }
   
-  fscanf(fp,"%d\n",&tmpi);   msp->n_sphr=tmpi;
+  if(fscanf(fp,"%d\n",&tmpi)!=1){
+    printf("emf_mie_mmls.c, read_data_mmls(), failed to read the n_sphr. exit...\n");
+    exit(1);
+  }
+  msp->n_sphr=tmpi;
   if(msp->n_sphr==0) {
     printf("Sphere number is 0. Exit...\n");
     exit(0);
@@ -19,17 +30,51 @@ void read_data_mmls(MSPD *msp)
   msp->sp=(SPD *)m_alloc2(tmpi,sizeof(SPD),"read_data_mmls(),msp->sp"); // malloc
 
   for(s=0;s<msp->n_sphr;s++){
-    fgets(buf,256,fp);
+    if(fgets(buf,256,fp)==NULL){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the line. exit...\n");
+      exit(1);
+    }
 
-    fscanf(fp,"%d",&tmpi);    msp->sp[s].bsn      =tmpi;    
-    fscanf(fp,"%d",&tmpi);    msp->sp[s].bdv      =tmpi;
-    fscanf(fp,"%d",&tmpi);    msp->sp[s].l_limit  =tmpi; 
-    fscanf(fp,"%lf",&tmpd);   msp->sp[s].xs       =tmpd;
-    fscanf(fp,"%lf",&tmpd);   msp->sp[s].ys       =tmpd; 
-    fscanf(fp,"%lf\n",&tmpd); msp->sp[s].zs       =tmpd;
+    if(fscanf(fp,"%d",&tmpi)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the bsn. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].bsn      =tmpi;    
+    if(fscanf(fp,"%d",&tmpi)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the bdv. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].bdv      =tmpi;
+    if(fscanf(fp,"%d",&tmpi)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the l_limit. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].l_limit  =tmpi; 
+    if(fscanf(fp,"%lf",&tmpd)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the xs. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].xs       =tmpd;
+    if(fscanf(fp,"%lf",&tmpd)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the ys. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].ys       =tmpd; 
+    if(fscanf(fp,"%lf\n",&tmpd)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the zs. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].zs       =tmpd;
   
-    fgets(buf,256,fp);
-    fscanf(fp,"%d\n",&tmpi);  msp->sp[s].n_l      =tmpi;
+    if(fgets(buf,256,fp)==NULL){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the line. exit...\n");
+      exit(1);
+    }
+    if(fscanf(fp,"%d\n",&tmpi)!=1){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the n_l. exit...\n");
+      exit(1);
+    }
+    msp->sp[s].n_l      =tmpi;
     if(tmpi<1){
       printf("The number of layers must be positive integer. Exit...\n");
       exit(1);
@@ -39,14 +84,28 @@ void read_data_mmls(MSPD *msp)
       printf("For non-layered sphere, set 2 layers as the same refractive index. Exit...\n");
       exit(1);
     }
-    fgets(buf,256,fp);
+    if(fgets(buf,256,fp)==NULL){
+      printf("emf_mie_mmls.c, read_data_mmls(), failed to read the line. exit...\n");
+      exit(1);
+    }
 
     msp->sp[s].a=(double *)m_alloc2(tmpi,sizeof(double),"read_data_mmls(),msp->sp[s].a"); // malloc
     msp->sp[s].ns=(double complex *)m_alloc2(tmpi,sizeof(double complex),"read_data_mmls(),msp->sp[s].ns"); // malloc  
     for(i=0;i<tmpi;i++){
-      fscanf(fp,"%lf",&tmpd);     msp->sp[s].a [i]=tmpd;
-      fscanf(fp,"%lf",&tmpd);  
-      fscanf(fp,"%lf\n",&tmpd2);  msp->sp[s].ns[i]=tmpd+I*tmpd2;  
+      if(fscanf(fp,"%lf",&tmpd)!=1){
+        printf("emf_mie_mmls.c, read_data_mmls(), failed to read the a. exit...\n");
+        exit(1);
+      }
+      msp->sp[s].a [i]=tmpd;
+      if(fscanf(fp,"%lf",&tmpd)!=1){
+        printf("emf_mie_mmls.c, read_data_mmls(), failed to read the real(ns). exit...\n");
+        exit(1);
+      }
+      if(fscanf(fp,"%lf\n",&tmpd2)!=1){
+        printf("emf_mie_mmls.c, read_data_mmls(), failed to read the imag(ns). exit...\n");
+        exit(1);
+      }
+      msp->sp[s].ns[i]=tmpd+I*tmpd2;  
       if(i>0){
         if(msp->sp[s].a[i-1]>msp->sp[s].a[i]){
           printf("layer data must be defined in order from the inside\n");
@@ -214,18 +273,19 @@ void output_node_particles(char *fname,MSPD *msp)
 {
   FILE *fp;
   double a,st,ct,sp,cp,x,y,z;
-  int s1,s2,oid,i,j;
-  char *sd,fo[128]="";
+  int s1,oid,i,j;
+  char *sd,fo[256]={},tf[200]={};
 
-  sd=strrchr(fname,'.');
-  if(sd==NULL){ // no file extension
-    sprintf(fo,"%s.particles",fname);
+  s1=strlen(fname);
+  if(s1>200){
+    printf("emf_mie_mmls.c, output_node_particles(), file name is too long. exit...\n");
+    exit(1);
   }
-  else {
-    s1=strlen(fname);
-    s2=strlen(sd);
-    strncpy(fo,fname,s1-s2);
-    sprintf(fo,"%s.particles",fo);
+  sprintf(fo,"%s",fname);
+  sd=strrchr(fo,'.');
+  if(sd!=NULL){
+    strncpy(tf,fname,s1-strlen(sd));
+    sprintf(fo,"%s.particles",tf);
   }
   
   if((fp=fopen(fo,"wt"))==NULL){    printf("Can not open the %s file.\n",fo);    exit(1);  }
