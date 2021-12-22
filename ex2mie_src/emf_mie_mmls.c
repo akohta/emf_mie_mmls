@@ -262,6 +262,10 @@ void iterative_ops_mmls(MSPD *msp)
       for(t=0;t<num;t++) if(bc[t]<=0) sbc++;
       if(sbc==num) break;
     }
+    
+    if(nn==ito_max){
+      printf("The maximum number of iterations has been reached (The result has not converged).\n");
+    }
   }
   for(s=0;s<num;s++)    all_coefficient(&(msp->sp[s]),&(msp->bm));
   printf("\n");
