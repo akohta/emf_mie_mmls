@@ -64,10 +64,14 @@ void     total_EH_mmls(double complex *e,double complex *h,double *r,MSPD *msp);
 // e[0]=Ex,e[1]=Ey,e[2]=Ez,h[0]=Hx,h[1]=Hy,h[2]=Hz,r[0]=x,r[1]=y,r[2]=z
 
 // ---- emf_mie_mmls_force.c ----
-void  force_mmls(int id,double *vf,MSPD *msp);                 // calculate radiation force of the sphere 
-void torque_mmls(int id,double *vn,MSPD *msp);                 // calculate radiation torque of the sphere 
-void force_torque_mmls(int id,double *vf,double *vn,MSPD *msp); // calculate radiation force and torque of the sphere
-// id : sphere id, vf[0]=Fx,vf[1]=Fy,vf[2]=Fz,vn[0]=Nx,vn[1]=Ny,vn[2]=Vz
+void  force_mmls(int id,double *vf,MSPD *msp);                  // calculate net radiation force acting on the sphere 
+void torque_mmls(int id,double *vn,MSPD *msp);                  // calculate net radiation torque acting on the sphere 
+void force_torque_mmls(int id,double *vf,double *vn,MSPD *msp); // calculate net radiation force and torque
+// id : sphere id, vf[0]=Fx,vf[1]=Fy,vf[2]=Fz,vn[0]=Nx,vn[1]=Ny,vn[2]=Nz
+
+// ---- emf_mie_mmls_absorb.c ----
+void absorbed_energy_mmls(int id,double *p,MSPD *msp);          // calculate net absorbed energy by the sphere
+// id : sphere id, p : absorbed energy　  
 
 // ---- emf_mie_mmls_dat.c ----
 void write_dat_mmls(char *fn,MSPD *msp); // write datafile
