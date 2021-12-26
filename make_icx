@@ -54,7 +54,7 @@ $(TARGET4) : $(TRGOBJ4)
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(MPFLAGS)
 
 $(TARGET5) : $(TRGOBJ5)
-  $(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(MPFLAGS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS) $(MPFLAGS)
 
 $(OBJDIR)/%.o : $(SRCDIR1)/%.c
 	$(CC) $(CFLAGS) -I$(SRCDIR2) -I$(SRCDIR3) -c $< -o $@ $(MPFLAGS)
